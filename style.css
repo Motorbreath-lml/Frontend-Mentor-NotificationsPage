@@ -1,0 +1,159 @@
+/*Reseteo de los estilos por defecto del navegador*/
+*{ 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Falta hacer lo de normalize y establecer las medidas rem */
+
+/* Variables para los colores */
+:root{
+    --Red: hsl(1, 90%, 64%);
+    --Blue: hsl(219, 85%, 26%);
+    --White: hsl(0, 0%, 100%);
+    --Very-light-grayish-blue:hsl(210, 60%, 98%);
+    --Light-grayish-blue-1: hsl(211, 68%, 94%);
+    --Light-grayish-blue-2: hsl(205, 33%, 90%);
+    --Grayish-blue: hsl(219, 14%, 63%);
+    --Dark-grayish-blue: hsl(219, 12%, 42%);
+    --Very-dark-blue: hsl(224, 21%, 14%);
+}
+
+/* Utilizar fuentes, evitar google fonts de forma directa por razones legales*/
+@font-face{
+    font-family: 'Plus Jakarta Sans';
+    src: url(./assets/fonts/PlusJakartaSans-VariableFont_wght.ttf);
+}
+/* indicar que la fuente se utiliza en toda la pagina */
+body{
+    font-family: 'Plus Jakarta Sans';
+}
+
+.main{ /*Hay que usar rem en los paddings*/
+    padding: 24px 16px;
+}
+
+/* Estilos para el head notifications */
+.notifications{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    & .title{ /* Anidamiento de clases, antes se usaba BEM para ordenar los estilos o SASS pero con el anidamiento ya no es necesario*/
+        color: var(--Very-dark-blue);
+        font-weight: 800;
+        font-size: 1.25rem;/*20px*/
+        word-spacing: 9px;
+    }
+    & .number{
+        display: inline-block; /*Span por defecto se comporta como un elemento inline*/
+        background-color: var(--Blue);
+        color: var(--White);
+        width: 32px;
+        height: 25px;
+        text-align: center;
+        border-radius: 6px;
+    }
+    & .mark{
+        color: var(--Dark-grayish-blue);
+        font-size: 0.875rem; /* 14px */
+        font-weight: 500;
+        cursor: pointer;
+        &:hover{
+            color: var(--Blue);
+        }
+    }
+}
+
+.post{
+    /*Estilos generales para el div post*/
+    background-color: var(--Very-light-grayish-blue);
+    border-radius: 8px;
+    display: flex;
+    gap: 13px;
+    padding: 16px;
+    font-size: 0.875em;/*14px*/
+    cursor: pointer;
+    margin-bottom: 1rem;
+    color: var(--Dark-grayish-blue);
+    position: relative; /*Como regerencia para el img que usa absolute*/
+    /*Estilos para la imagen del usuario*/
+    min-width: 342px;/*Tamaño minimo del post*/
+    & .image{
+        width : 39px;
+        height: 39px;
+    }
+    /*Estilos para el nombre del usuario*/
+    & .name{
+        font-weight: bold;
+        color: var(--Very-dark-blue);
+        &:hover{
+            color:var(--Blue)
+        }
+    }
+    /*Estilo para la "reaccion"*/
+    & .reaction{
+        font-weight: bold;
+        &:hover{
+            color: var(--Blue);
+        }
+    }
+    /* Estilos para el tiempo de la notificacion*/
+    & .time{
+        color: var(--Grayish-blue);
+        font-size: 0.875rem; /*14px*/
+        font-weight: 500;
+    }
+    /* Estilo en particular de Jacob, pienso que no es necesario*/
+    & .group{
+        color: var(--Blue);
+        font-weight: bold;
+    }
+    /*Estilos para el mensaje inbox*/
+    & .message-container{
+        border: 1px solid var(--Light-grayish-blue-2);
+        border-radius: 5px;
+        padding:  16px;
+        margin-top: 12px;
+        &:hover{
+            background-color: var(--Light-grayish-blue-1);
+        }
+    }
+    /*Estilos para la imagen del ajedrez*/
+    & .picture{
+        width: 39px;
+        height: 39px;
+        position: absolute; /*Toma como padre el div post*/
+        right: 16px;
+    }
+}
+
+/*Estilos para las notificaciones no leidas*/
+.not-read{
+    display: inline-block; /*La calse esta dentro de un span, necesitamos que tenga propiedades block*/
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 8px;
+    background-color: var(--Red);
+}
+
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+/* Estilos de la vista de escritorio*/
+@media (min-width: 768px){
+    .main{
+        width: 730px;
+        margin: 0 auto;
+    }
+    .post{
+        font-size: 1rem;
+    }
+}
