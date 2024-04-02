@@ -149,6 +149,11 @@ body{
     background-color: var(--Red);
 }
 
+/* Estilo para la notificacion leida*/
+.read{
+    background-color: var(--White);
+}
+
 /* Estilos de la vista de escritorio*/
 @media (min-width: 768px){
     .main{
@@ -160,7 +165,8 @@ body{
 }
 
 .attribution {
-    font-size: 11px;
+    margin: 3rem 0rem;
+    font-size: 1.2rem;
     text-align: center;
 }
 
